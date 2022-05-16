@@ -12,6 +12,8 @@ public class JavaQuestionService implements QuestionService {
 
     private Set<Question> questions = new HashSet<>();
 
+
+
     public Set<Question> getQuestions() {
         return questions;
     }

@@ -3,14 +3,23 @@ package com.example.courswork2;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.util.Random;
 
 import static com.example.courswork2.ConstantsForJavaQuestionServise.*;
 import static org.junit.jupiter.api.Assertions.*;
-
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.Mockito.*;
 
 public class JavaQuestionServiceTest {
 
-    private final JavaQuestionService out = new JavaQuestionService();
+
+
+    JavaQuestionService out = new JavaQuestionService();
 
     @BeforeEach
     public void fillQustionsSet() {
@@ -50,8 +59,10 @@ public class JavaQuestionServiceTest {
 
     @Test
     public void shouldReturnRandomQuestion() {
-        assertEquals(FIRST_QUESTION,out.getRandomQuestion());
-    }//Идеа не дала замокать класс Random, этот тест проходит успешно, т.к. в сете questions только один
-    // элемент... Как нужно было поступить?
+        assertTrue(QUESTION_SET.contains(out.getRandomQuestion()));
+    }//т.к.  с "замокать" класс Random возникли сложности, нашел вот такое решение, это позволит,
+    // не мокая Random, протестировать метод getRandomQuestion, т.е. я проверяю содержится ли возвращаемый
+    // вопрос методом getRandomQuestion в сете. Т.е. если сейчас я out заполню несколкими вопросам
+    // тест будет проходить
 
 }
