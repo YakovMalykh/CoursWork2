@@ -1,7 +1,6 @@
 package com.example.courswork2;
 
 import com.example.courswork2.interfaces.QuestionRepository;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -11,16 +10,17 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import static com.example.courswork2.ConstantsForJavaQuestionServise.*;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.anyString;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class JavaQuestionServiceTest {
+public class MathQuestionServiceTest {
 
     @Mock
     QuestionRepository questionRepositoryMock;
 
     @InjectMocks
-    JavaQuestionService out;
+    MathQuestionService out;
 
     @BeforeEach
     public void fillQustionsSet() {

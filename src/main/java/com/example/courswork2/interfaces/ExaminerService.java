@@ -1,4 +1,6 @@
-package com.example.courswork2;
+package com.example.courswork2.interfaces;
+
+import com.example.courswork2.Question;
 
 import java.util.Collection;
 

@@ -8,24 +8,26 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 import java.util.stream.Collectors;
 
+
 @Service
-public class JavaQuestionService implements QuestionService {
+public class MathQuestionService implements QuestionService {
 
     private final QuestionRepository questionRepository;
 
-    public JavaQuestionService(
-            @Qualifier("javaQuestionRepository") QuestionRepository questionRepository) {
+    public MathQuestionService(
+            @Qualifier("mathQuestionRepository") QuestionRepository questionRepository) {
         this.questionRepository = questionRepository;
     }
 
+
     @Override
     public Question add(String question, String answer) {
-        return questionRepository.add(question,answer);
+       return questionRepository.add(question,answer);
     }
 
     @Override
     public Question remove(String question, String answer) {
-        return questionRepository.remove(question, answer);
+        return questionRepository.remove(question,answer);
     }
 
     @Override
@@ -37,7 +39,7 @@ public class JavaQuestionService implements QuestionService {
     public Question getRandomQuestion() {
         Random random = new Random();
         int randomIndex = random.nextInt(getAll().size());
-        List<Question>questionList= getAll().stream().
+        List<Question> questionList= getAll().stream().
                 collect(Collectors.toList());
         return questionList.get(randomIndex);
     }
