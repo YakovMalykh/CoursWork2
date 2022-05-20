@@ -1,6 +1,6 @@
 package com.example.courswork2.controllers;
 
-import com.example.courswork2.ExaminerService;
+import com.example.courswork2.interfaces.ExaminerService;
 import com.example.courswork2.Question;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +15,7 @@ public class ExamController {
     public ExamController(ExaminerService examinerService) {
         this.examinerService = examinerService;
     }
+
     @GetMapping("/{amount}")
     public Collection<Question> getQuestions(@PathVariable("amount") int amount) {
         return examinerService.getQuestions(amount);
